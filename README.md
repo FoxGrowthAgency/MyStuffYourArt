@@ -1,10 +1,13 @@
 ---
-title: My Stuff Your Art 3jck8
-emoji: 📚
-colorFrom: green
-colorTo: purple
+title: My Stuff Your Art 🎨
+colorFrom: blue
+colorTo: red
 sdk: static
-pinned: false
+emoji: 📚
+tags:
+  - deepsite-v4
 ---
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+# My Stuff Your Art 🎨
+
+This project has been created with [DeepSite](https://deepsite.hf.co) AI Vibe Coding.

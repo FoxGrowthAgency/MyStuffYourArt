@@ -1,19 +1,601 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>My static Space</title>
-		<link rel="stylesheet" href="style.css" />
-	</head>
-	<body>
-		<div class="card">
-			<h1>Welcome to your static Space!</h1>
-			<p>You can modify this app directly by editing <i>index.html</i> in the Files and versions tab.</p>
-			<p>
-				Also don't forget to check the
-				<a href="https://huggingface.co/docs/hub/spaces" target="_blank">Spaces documentation</a>.
-			</p>
-		</div>
-	</body>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Stuff Your Art | Premium Wholesale Art Supplies</title>
+    <meta name="description" content="Premium wholesale art supplies for retailers, studios, and schools. Contact us for private pricing.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-hero {
+            background: linear-gradient(135deg, #fce7f3 0%, #e0f2fe 50%, #f0f9ff 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .soft-shadow {
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-pink-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-300 to-blue-300 flex items-center justify-center">
+                        <i data-lucide="palette" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <span class="font-semibold text-xl tracking-tight text-slate-800">My Stuff Your Art</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-slate-600 hover:text-pink-600 transition-colors font-medium">Home</a>
+                    <a href="#products" class="text-slate-600 hover:text-pink-600 transition-colors font-medium">Products</a>
+                    <a href="#about" class="text-slate-600 hover:text-pink-600 transition-colors font-medium">About</a>
+                    <a href="#wholesale" class="text-slate-600 hover:text-pink-600 transition-colors font-medium">Wholesale</a>
+                    <a href="#contact" class="text-slate-600 hover:text-pink-600 transition-colors font-medium">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="#contact" class="bg-gradient-to-r from-pink-400 to-blue-400 text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg hover:shadow-pink-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                        Request Wholesale Access
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-pink-600 p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-pink-50">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home" class="block px-3 py-2 text-slate-600 hover:text-pink-600 hover:bg-pink-50 rounded-lg transition-colors">Home</a>
+                <a href="#products" class="block px-3 py-2 text-slate-600 hover:text-pink-600 hover:bg-pink-50 rounded-lg transition-colors">Products</a>
+                <a href="#about" class="block px-3 py-2 text-slate-600 hover:text-pink-600 hover:bg-pink-50 rounded-lg transition-colors">About</a>
+                <a href="#wholesale" class="block px-3 py-2 text-slate-600 hover:text-pink-600 hover:bg-pink-50 rounded-lg transition-colors">Wholesale</a>
+                <a href="#contact" class="block px-3 py-2 text-slate-600 hover:text-pink-600 hover:bg-pink-50 rounded-lg transition-colors">Contact</a>
+                <a href="#contact" class="block mx-3 mt-4 bg-gradient-to-r from-pink-400 to-blue-400 text-white text-center px-6 py-3 rounded-full font-medium">Request Wholesale Access</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-hero min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 border border-pink-200 text-pink-700 text-sm font-medium mb-8 shadow-sm">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                <span>Trusted by 500+ Retail Partners</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold text-slate-900 mb-6 leading-tight tracking-tight">
+                Premium Art Supplies for <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-blue-500">Creative Retailers</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
+                Quality materials. Wholesale pricing. Private access for approved buyers.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#contact" class="group bg-slate-900 text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-slate-800 transition-all duration-300 shadow-xl shadow-slate-200 flex items-center gap-2">
+                    Request Price List
+                    <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#products" class="bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-full font-medium text-lg hover:border-pink-300 hover:text-pink-600 transition-all duration-300 shadow-md flex items-center gap-2">
+                    <i data-lucide="grid-3x3" class="w-5 h-5"></i>
+                    View Categories
+                </a>
+            </div>
+
+            <div class="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto text-center">
+                <div class="p-4">
+                    <div class="text-3xl font-bold text-slate-900 mb-1">10K+</div>
+                    <div class="text-sm text-slate-500">Products Available</div>
+                </div>
+                <div class="p-4 border-x border-pink-200/50">
+                    <div class="text-3xl font-bold text-slate-900 mb-1">48h</div>
+                    <div class="text-sm text-slate-500">Quote Response</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl font-bold text-slate-900 mb-1">Global</div>
+                    <div class="text-sm text-slate-500">Shipping</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Categories Section -->
+    <section id="products" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-pink-500 font-medium tracking-wide uppercase text-sm">Our Collection</span>
+                <h2 class="text-4xl font-bold text-slate-900 mt-2 mb-4">Professional Grade Materials</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto text-lg">Browse our curated selection of premium art supplies. All items available for wholesale—contact us for volume pricing.</p>
+            </div>
+
+            <!-- Paint Supplies -->
+            <div class="mb-16">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-12 h-12 rounded-2xl bg-pink-100 flex items-center justify-center">
+                        <i data-lucide="paint-bucket" class="w-6 h-6 text-pink-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-slate-900">Paint Supplies</h3>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Acrylic -->
+                    <div class="glass-card rounded-2xl p-6 soft-shadow hover-lift border border-pink-100/50">
+                        <div class="h-48 mb-6 rounded-xl overflow-hidden bg-pink-50">
+                            <img src="http://static.photos/minimal/640x360/42" alt="Acrylic Paint Sets" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-slate-900 mb-2">Acrylic Paint Sets</h4>
+                        <p class="text-slate-600 mb-4 text-sm">Professional grade, high pigment concentration. Available in 24, 48, and 72 colour sets.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-medium text-pink-600 bg-pink-50 px-3 py-1 rounded-full">Professional Grade</span>
+                            <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="text-slate-900 font-medium text-sm hover:text-pink-600 flex items-center gap-1 transition-colors">
+                                Request Quote <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Watercolour -->
+                    <div class="glass-card rounded-2xl p-6 soft-shadow hover-lift border border-blue-100/50">
+                        <div class="h-48 mb-6 rounded-xl overflow-hidden bg-blue-50">
+                            <img src="http://static.photos/abstract/640x360/88" alt="Watercolour Tubes" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-slate-900 mb-2">Watercolour Tubes</h4>
+                        <p class="text-slate-600 mb-4 text-sm">Artist-quality watercolours with excellent lightfastness. Individual tubes and boxed sets.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Artist Quality</span>
+                            <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="text-slate-900 font-medium text-sm hover:text-blue-600 flex items-center gap-1 transition-colors">
+                                Request Quote <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Oil Paint -->
+                    <div class="glass-card rounded-2xl p-6 soft-shadow hover-lift border border-slate-100">
+                        <div class="h-48 mb-6 rounded-xl overflow-hidden bg-slate-100">
+                            <img src="http://static.photos/textures/640x360/15" alt="Oil Paint Starter Kits" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-slate-900 mb-2">Oil Paint Starter Kits</h4>
+                        <p class="text-slate-600 mb-4 text-sm">Traditional oils and water-mixable options. Perfect for educational institutions.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-full">Starter Kits</span>
+                            <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="text-slate-900 font-medium text-sm hover:text-pink-600 flex items-center gap-1 transition-colors">
+                                Request Quote <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drawing Materials -->
+            <div class="mb-16">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-100 flex items-center justify-center">
+                        <i data-lucide="pencil" class="w-6 h-6 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-slate-900">Drawing Materials</h3>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Sketch Pads -->
+                    <div class="glass-card rounded-2xl p-6 soft-shadow hover-lift border border-blue-100/50">
+                        <div class="h-48 mb-6 rounded-xl overflow-hidden bg-blue-50">
+                            <img src="http://static.photos/minimal/640x360/101" alt="Sketch Pads" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-slate-900 mb-2">Sketch Pads</h4>
+                        <p class="text-slate-600 mb-4 text-sm">A3 and A4 bulk packs. Acid-free paper in 90gsm and 150gsm weights.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Bulk Packs</span>
+                            <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="text-slate-900 font-medium text-sm hover:text-blue-600 flex items-center gap-1 transition-colors">
+                                Request Quote <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Charcoal -->
+                    <div class="glass-card rounded-2xl p-6 soft-shadow hover-lift border border-slate-100">
+                        <div class="h-48 mb-6 rounded-xl overflow-hidden bg-slate-100">
+                            <img src="http://static.photos/black/640x360/23" alt="Charcoal Sets" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-slate-900 mb-2">Charcoal Sets</h4>
+                        <p class="text-slate-600 mb-4 text-sm">Willow and compressed charcoal. Classroom packs available with 30+ pieces.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-full">Classroom Sets</span>
+                            <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="text-slate-900 font-medium text-sm hover:text-pink-600 flex items-center gap-1 transition-colors">
+                                Request Quote <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Graphite -->
+                    <div class="glass-card rounded-2xl p-6 soft-shadow hover-lift border border-pink-100/50">
+                        <div class="h-48 mb-6 rounded-xl overflow-hidden bg-pink-50">
+                            <img src="http://static.photos/office/640x360/55" alt="Graphite Pencils" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-semibold text-slate-900 mb-2">Graphite Collections</h4>
+                        <p class="text-slate-600 mb-4 text-sm">Complete ranges from 9H to 9B. Display stands included for retail partners.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-medium text-pink-600 bg-pink-50 px-3 py-1 rounded-full">Full Range</span>
+                            <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="text-slate-900 font-medium text-sm hover:text-pink-600 flex items-center gap-1 transition-colors">
+                                Request Quote <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brushes -->
+            <div>
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-100 flex items-center justify-center">
+                        <i data-lucide="brush" class="w-6 h-6 text-purple-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-slate-900">Brushes & Tools</h3>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    <!-- Synthetic Brushes -->
+                    <div class="glass-card rounded-2xl p-6 soft-shadow hover-lift border border-purple-100/50 flex gap-6">
+                        <div class="w-32 h-32 rounded-xl overflow-hidden bg-purple-50 flex-shrink-0">
+                            <img src="http://static.photos/minimal/320x240/77" alt="Synthetic Brushes" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <h4 class="text-xl font-semibold text-slate-900 mb-2">Synthetic Brush Sets</h4>
+                            <p class="text-slate-600 mb-4 text-sm">High-performance synthetic fibres suitable for all paint types. Round, flat, and filbert sets.</p>
+                            <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="text-purple-600 font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                                Request Quote <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Natural Hair -->
+                    <div class="glass-card rounded-2xl p-6 soft-shadow hover-lift border border-pink-100/50 flex gap-6">
+                        <div class="w-32 h-32 rounded-xl overflow-hidden bg-pink-50 flex-shrink-0">
+                            <img src="http://static.photos/minimal/320x240/91" alt="Natural Hair Brushes" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <h4 class="text-xl font-semibold text-slate-900 mb-2">Natural Hair Brushes</h4>
+                            <p class="text-slate-600 mb-4 text-sm">Sable and hog hair brushes for professional artists. Individual and set options.</p>
+                            <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="text-pink-600 font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                                Request Quote <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-pink-200 rounded-full opacity-50 blur-2xl"></div>
+                    <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-blue-200 rounded-full opacity-50 blur-2xl"></div>
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="http://static.photos/workspace/1024x576/33" alt="Art Supplies Workspace" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl p-4 shadow-xl border border-pink-100">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-600"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-slate-900">Verified Supplier</div>
+                                <div class="text-xs text-slate-500">Since 2015</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <span class="text-blue-500 font-medium tracking-wide uppercase text-sm">About Us</span>
+                    <h2 class="text-4xl font-bold text-slate-900 mt-2 mb-6">Supplying Creativity Since 2015</h2>
+                    <p class="text-slate-600 text-lg mb-6 leading-relaxed">
+                        My Stuff Your Art partners with retail stores, educational institutions, and professional studios to provide premium art materials at wholesale prices. We believe quality supplies should be accessible to every creative business.
+                    </p>
+                    <p class="text-slate-600 text-lg mb-8 leading-relaxed">
+                        Our catalogue features carefully curated products from trusted manufacturers worldwide. We focus on sustainable, high-performance materials that your customers will love.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-pink-100 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="truck" class="w-4 h-4 text-pink-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-900">Fast Shipping</h4>
+                                <p class="text-sm text-slate-600">Global logistics network</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-900">Quality Guarantee</h4>
+                                <p class="text-sm text-slate-600">100% satisfaction assured</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wholesale Info Section -->
+    <section id="wholesale" class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-pink-500 font-medium tracking-wide uppercase text-sm">Wholesale Program</span>
+                <h2 class="text-4xl font-bold text-slate-900 mt-2 mb-4">Private Pricing for Qualified Buyers</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto text-lg">
+                    We operate on a quote-based system to ensure competitive pricing for your specific volume and requirements. Apply for wholesale access to receive our confidential price list.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="text-center p-8 rounded-2xl bg-gradient-to-b from-pink-50 to-white border border-pink-100">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-pink-100 flex items-center justify-center">
+                        <i data-lucide="store" class="w-8 h-8 text-pink-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-900 mb-2">Retail Stores</h3>
+                    <p class="text-slate-600 text-sm">Brick-and-mortar and online art supply retailers.</p>
+                </div>
+                
+                <div class="text-center p-8 rounded-2xl bg-gradient-to-b from-blue-50 to-white border border-blue-100">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-blue-100 flex items-center justify-center">
+                        <i data-lucide="building-2" class="w-8 h-8 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-900 mb-2">Institutions</h3>
+                    <p class="text-slate-600 text-sm">Schools, universities, and educational programs.</p>
+                </div>
+                
+                <div class="text-center p-8 rounded-2xl bg-gradient-to-b from-purple-50 to-white border border-purple-100">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-purple-100 flex items-center justify-center">
+                        <i data-lucide="users" class="w-8 h-8 text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-900 mb-2">Studios</h3>
+                    <p class="text-slate-600 text-sm">Professional art studios and creative workshops.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-pink-500/20 to-blue-500/20"></div>
+                <div class="relative z-10">
+                    <h3 class="text-3xl font-bold mb-4">Ready to Stock Your Shelves?</h3>
+                    <p class="text-slate-300 mb-8 max-w-xl mx-auto">Join our network of approved wholesale buyers. Applications typically reviewed within 24-48 hours.</p>
+                    <a href="#contact" class="inline-flex items-center gap-2 bg-white text-slate-900 px-8 py-3 rounded-full font-semibold hover:bg-pink-50 transition-colors">
+                        Apply for Wholesale Access
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div>
+                    <span class="text-blue-500 font-medium tracking-wide uppercase text-sm">Get in Touch</span>
+                    <h2 class="text-4xl font-bold text-slate-900 mt-2 mb-6">Request Your Price List</h2>
+                    <p class="text-slate-600 text-lg mb-8">
+                        Fill out the form below to apply for wholesale access. Please include your business type and estimated monthly volume for faster processing.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-pink-100 flex items-center justify-center">
+                                <i data-lucide="mail" class="w-5 h-5 text-pink-600"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-slate-500">Email</div>
+                                <div class="font-medium text-slate-900">wholesale@mystuffyourart.info</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
+                                <i data-lucide="clock" class="w-5 h-5 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-slate-500">Response Time</div>
+                                <div class="font-medium text-slate-900">Within 48 hours</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-purple-600"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-slate-500">Location</div>
+                                <div class="font-medium text-slate-900">Global Shipping Available</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
+                    <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you for your inquiry! We will review your application and send the price list within 48 hours.');">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Business Name</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 outline-none transition-all" placeholder="Your company name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Contact Name</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 outline-none transition-all" placeholder="Full name">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
+                            <input type="email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 outline-none transition-all" placeholder="business@example.com">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Business Type</label>
+                            <select required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 outline-none transition-all bg-white">
+                                <option value="">Select your business type</option>
+                                <option value="retail">Retail Store</option>
+                                <option value="online">Online Retailer</option>
+                                <option value="school">School / University</option>
+                                <option value="studio">Art Studio</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Message / Volume Requirements</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 outline-none transition-all" placeholder="Tell us about your business and what products you're interested in..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-gradient-to-r from-pink-400 to-blue-400 text-white font-semibold py-4 rounded-xl hover:shadow-lg hover:shadow-pink-200 transition-all duration-300 transform hover:-translate-y-0.5">
+                            Submit Wholesale Inquiry
+                        </button>
+                        
+                        <p class="text-xs text-slate-500 text-center">
+                            By submitting, you agree to our wholesale terms. All pricing is confidential and subject to approval.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-pink-300 to-blue-300 flex items-center justify-center">
+                            <i data-lucide="palette" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="font-semibold text-lg text-slate-800">My Stuff Your Art</span>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed max-w-sm">
+                        Premium wholesale art supplies for creative retailers, educational institutions, and professional studios worldwide.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#products" class="text-slate-600 hover:text-pink-600 transition-colors">Products</a></li>
+                        <li><a href="#about" class="text-slate-600 hover:text-pink-600 transition-colors">About Us</a></li>
+                        <li><a href="#wholesale" class="text-slate-600 hover:text-pink-600 transition-colors">Wholesale Info</a></li>
+                        <li><a href="#contact" class="text-slate-600 hover:text-pink-600 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-slate-600 hover:text-pink-600 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-slate-600 hover:text-pink-600 transition-colors">Wholesale Terms</a></li>
+                        <li><a href="#" class="text-slate-600 hover:text-pink-600 transition-colors">Shipping Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-sm">© 2024 My Stuff Your Art. All rights reserved.</p>
+                <div class="flex items-center gap-4">
+                    <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-pink-100 hover:text-pink-600 transition-colors">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-blue-100 hover:text-blue-600 transition-colors">
+                        <i data-lucide="linkedin" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-pink-100 hover:text-pink-600 transition-colors">
+                        <i data-lucide="twitter" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+<script src="https://deepsite.hf.co/deepsite-badge.js"></script>
+</body>
 </html>
